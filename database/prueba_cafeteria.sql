@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 18-05-2022 a las 20:13:56
+-- Tiempo de generación: 18-05-2022 a las 21:35:45
 -- Versión del servidor: 8.0.27
 -- Versión de PHP: 7.4.26
 
@@ -240,7 +240,6 @@ CREATE TABLE IF NOT EXISTS `productos` (
 
 INSERT INTO `productos` (`id`, `nombre`, `preciocompra`, `precioventa`, `stock`, `created_at`, `updated_at`) VALUES
 (1, 'Empanada', 1600, '2500.00', 45, '2022-05-04 19:45:54', '2022-05-18 18:16:53'),
-(2, 'empanada', 1600, '2500.00', 15, '2022-05-04 19:46:33', '2022-05-13 21:50:04'),
 (3, 'arepa', 1500, '2700.00', 9, '2022-05-04 19:47:03', '2022-05-13 20:54:45'),
 (4, 'chocorramo', 600, '2500.00', 10, '2022-05-04 19:47:24', '2022-05-12 16:12:57'),
 (5, 'patacon', 500, '2600.00', 23, '2022-05-04 19:47:43', '2022-05-14 16:06:29'),
@@ -368,21 +367,6 @@ CREATE TABLE IF NOT EXISTS `stockupdates` (
   KEY `foreing key` (`idprod`)
 ) ENGINE=InnoDB AUTO_INCREMENT=518 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `stockupdates`
---
-
-INSERT INTO `stockupdates` (`id`, `idprod`, `nombre`, `preciocompra`, `precioventa`, `stock_antiguo`, `stock_agregar`, `fecha_creacion`, `fecha_actualizacion`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Empanada', 1600, 2500, 28, 5, '2022-05-04 14:45:54', '2022-05-13 15:51:45', '2022-05-13 20:51:45', '2022-05-13 20:51:45'),
-(2, 1, 'Empanada', 1600, 2500, 30, 5, '2022-05-04 14:45:54', '2022-05-13 16:49:30', '2022-05-13 21:49:30', '2022-05-13 21:49:30'),
-(3, 2, 'empanada', 1600, 2500, 10, 5, '2022-05-04 14:46:33', '2022-05-13 16:50:04', '2022-05-13 21:50:04', '2022-05-13 21:50:04'),
-(4, 1, 'Empanada', 1600, 2500, 34, 1, '2022-05-04 14:45:54', '2022-05-14 11:07:52', '2022-05-14 16:07:52', '2022-05-14 16:07:52'),
-(513, 1, 'Empanada', 1600, 2500, 35, 5, '2022-05-04 14:45:54', '2022-05-14 11:27:43', '2022-05-14 16:27:43', '2022-05-14 16:27:43'),
-(514, 1, 'Empanada', 1600, 2500, 40, 5, '2022-05-04 14:45:54', '2022-05-14 11:28:53', '2022-05-14 16:28:53', '2022-05-14 16:28:53'),
-(515, 1, 'Empanada', 1600, 2500, 45, 5, '2022-05-04 14:45:54', '2022-05-14 11:33:06', '2022-05-14 16:33:06', '2022-05-14 16:33:06'),
-(516, 1, 'Empanada', 1600, 2500, 50, 5, '2022-05-04 14:45:54', '2022-05-14 11:33:33', '2022-05-14 16:33:33', '2022-05-14 16:33:33'),
-(517, 1, 'Empanada', 1600, 2500, 55, 5, '2022-05-04 14:45:54', '2022-05-14 11:36:20', '2022-05-14 16:36:20', '2022-05-14 16:36:20');
-
 -- --------------------------------------------------------
 
 --
@@ -428,12 +412,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `cedula`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `created_at`, `updated_at`, `username`, `last_login`) VALUES
-(1, 'Super Admin', 'admin@admin.com', 87654213, NULL, '$2y$10$LrCZXWhGEBG4MXinE0qt8.DXHuCzMOa9YpcBkDRRUitKdOJ3KKOTO', NULL, NULL, '6UTTjZNyZ6G2hFo6NT6wF7cLv2AjcWd1f8dGIcVTW18TwuDZrMEYAcoPpIQE', '2021-12-20 19:45:37', '2022-05-18 19:55:46', 'Superadmin', '2022-05-18 14:55:46'),
-(2, 'Jenna Gamble', 'dycyjyxire@mailinator.com', 321987132, NULL, '$2y$10$vKD2lIDzxzMlw6mQZesch.KUFeG0uAsIjU6NlUx3bUemuf3X2iWEi', NULL, NULL, NULL, '2021-12-20 20:20:22', '2022-02-02 13:39:26', 'kavykic', '2022-02-02 08:39:26'),
-(3, 'sdfsdfsdfsdfsdfsdfsdfsd', 'desarrosdfsdfsdfllo@mentius.com.co', 8974854654878, NULL, '$2y$10$7XQ1V6D88FtFdqHystQ.0uCQoF1TeURDCzEjlwVDC0daibcRl2Aj2', NULL, NULL, NULL, '2022-01-31 18:47:52', '2022-01-31 18:50:08', 'dsfjk', '2022-01-31 13:50:08'),
-(4, 'Karen Julissa Auzaque Combita', 'kauzaque@mentius.com.co', 75646545645, NULL, '$2y$10$GIh5GLAwxZgKXSb40PFOr.Z9TsZs40SePAYa4LRK1XPbdIrGmTDWK', NULL, NULL, NULL, '2022-01-31 18:48:15', '2022-05-04 21:42:04', 'ertert34556', '2022-05-04 16:42:04'),
-(5, 'werwerfw8f7d8s9f789sdfsdf', 'jvianawerwerwerwer2605@gmail.com', 98785465456456456, NULL, '$2y$10$TaVSgR2BfGXXJo4/y8R0LuxKjQf56NvRiMj4VVVd.uKOXBJVOZ0f2', NULL, NULL, NULL, '2022-01-31 18:48:34', '2022-01-31 18:53:53', '98785343', '2022-01-31 13:53:53'),
-(7, 'juanpabloa', 'juanpaacos13@gmail.com', 1007714470, NULL, '$2y$10$yMdIecreEbfU4XtF0wVpdubICL1SaqvbmyPSge/ily.x0vMSr52pi', NULL, NULL, NULL, '2022-05-04 20:40:58', '2022-05-13 21:49:10', 'juanpabloa', '2022-05-13 16:49:10');
+(1, 'Super Admin', 'admin@admin.com', 87654213, NULL, '$2y$10$LrCZXWhGEBG4MXinE0qt8.DXHuCzMOa9YpcBkDRRUitKdOJ3KKOTO', NULL, NULL, '6UTTjZNyZ6G2hFo6NT6wF7cLv2AjcWd1f8dGIcVTW18TwuDZrMEYAcoPpIQE', '2021-12-20 19:45:37', '2022-05-18 19:55:46', 'Superadmin', '2022-05-18 14:55:46');
 
 -- --------------------------------------------------------
 
@@ -457,25 +436,6 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   PRIMARY KEY (`id`),
   KEY `foring key` (`id_colaborador`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`id`, `id_colaborador`, `detalleventa`, `total`, `cantidad`, `pagado`, `cambio`, `created_at`, `updated_at`, `metodo`, `cliente`) VALUES
-(5, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 5000, 2500, '2022-05-13 20:54:32', '2022-05-13 20:54:32', '', ''),
-(6, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1},{\"id\":2,\"nombre\":\"empanada\",\"precio\":\"2500.00\",\"cantidad\":2},{\"id\":3,\"nombre\":\"arepa\",\"precio\":\"2700.00\",\"cantidad\":1}]', 10200, 4, 50000, 39800, '2022-05-13 20:54:45', '2022-05-13 20:54:45', '', ''),
-(7, 1, '[{\"id\":2,\"nombre\":\"empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 5000, 2500, '2022-05-13 21:05:21', '2022-05-13 21:05:21', '', ''),
-(8, 7, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 5000, 2500, '2022-05-13 21:49:23', '2022-05-13 21:49:23', '', ''),
-(9, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1},{\"id\":5,\"nombre\":\"patacon\",\"precio\":\"2600.00\",\"cantidad\":1}]', 5100, 2, 50000, 44900, '2022-05-14 16:06:29', '2022-05-14 16:06:29', '', ''),
-(28, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 2500, 0, '2022-05-16 20:47:45', '2022-05-16 20:47:45', 'Credito', 'admin'),
-(29, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2650.00\",\"cantidad\":5}]', 13250, 5, 13250, 0, '2022-05-18 14:17:06', '2022-05-18 14:17:06', 'Credito', 'admin'),
-(30, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 5000, 2500, '2022-05-18 14:21:38', '2022-05-18 14:21:38', 'Efectivo', 'Cliente mentius'),
-(31, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 5000, 2500, '2022-05-18 18:06:30', '2022-05-18 18:06:30', 'Efectivo', 'Cliente Cafeteria'),
-(32, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":2}]', 5000, 2, 10000, 5000, '2022-05-18 18:09:32', '2022-05-18 18:09:32', 'Efectivo', 'Cliente Cafeteria'),
-(33, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":3}]', 7500, 3, 15275634, 15268134, '2022-05-18 18:15:14', '2022-05-18 18:15:14', 'Efectivo', 'Cliente Cafeteria'),
-(34, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 10000, 7500, '2022-05-18 18:16:21', '2022-05-18 18:16:21', 'Efectivo', 'Cliente Cafeteria'),
-(35, 1, '[{\"id\":1,\"nombre\":\"Empanada\",\"precio\":\"2500.00\",\"cantidad\":1}]', 2500, 1, 525252, 522752, '2022-05-18 18:16:53', '2022-05-18 18:16:53', 'Efectivo', 'Cliente Cafeteria');
 
 --
 -- Restricciones para tablas volcadas

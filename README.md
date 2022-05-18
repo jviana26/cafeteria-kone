@@ -22,5 +22,5 @@ o	Contraseña: santamarta2021*
 •	Realizar una consulta que permita conocer cuál es el producto que más stock tiene.
 
 SELECT id, nombre, stock
-FROM crm.productos
-WHERE stock = (SELECT MAX(stock ) FROM crm.productos)
+FROM prueba_cafeteria.productos
+WHERE stock = (SELECT MAX(stock ) FROM prueba_cafeteria.productos)
